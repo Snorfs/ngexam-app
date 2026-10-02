@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ExamPrep NG Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/script.js" defer></script>
+
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+
+<body id="student-dashboard" class="bg-[#F8F8F8] text-[#003028]">
+
+<div class="min-h-screen flex">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="fixed top-0 left-0 z-50 md:h-screen md:w-[86px] bg-[#003028] text-white w-full -translate-x-full lg:translate-x-0 lg:sticky lg:w-[250px] transition-transform duration-300 flex flex-col px-4 lg:px-5 py-6">
+
+    <div class="flex items-center justify-between gap-2 mb-2 lg:mb-9 px-1 md:flex-col">
+
+      <div class="flex items-center gap-2 md:order-2">
+        <img src="./Images/logo.png" alt="logo-image" class="w-7 h-7 shrink-0">
+
+        <span class="text-[19px] font-bold whitespace-nowrap md:hidden lg:block">
+          ExamPrep NG
+        </span>
+      </div>
+
+      <button id="sidebar-close" type="button" class="md:order-1 lg:hidden">
+        <ion-icon name="close-outline" class="w-10 h-10 flex"></ion-icon>
+      </button>
+
+    </div>
+
+
+    <nav class="space-y-2">
+
+      <a href="/studentdashboard.html" class="flex items-center gap-3 px-3 lg:px-4 py-3 rounded-lg bg-[#CEF4DA] text-[#003028] font-semibold text-sm">
+        <img src="./Images/home dark.png" alt="home-image" class="w-5 h-5 shrink-0">
+        <span class="md:hidden lg:block">Dashboard</span>
+      </a>
+
+      <a href="/studentpractice.html" class="flex items-center gap-3 px-3 lg:px-4 py-3 rounded-lg text-sm font-medium">
+        <img src="./Images/prac (2).png" alt="book" class="w-5 h-5 shrink-0">
+        <span class="md:hidden lg:block">Practice</span>
+      </a>
+
+      <a href="/studentperformance.html" class="flex items-center gap-3 px-3 lg:px-4 py-3 rounded-lg text-sm font-medium">
+        <img src="./Images/performance.png" alt="bar-chart" class="w-5 h-5 shrink-0">
+        <span class="md:hidden lg:block">Performance</span>
+      </a>
+
+      <a href="/studentprogress.html" class="flex items-center gap-3 px-3 lg:px-4 py-3 rounded-lg text-sm font-medium">
+        <img src="./Images/prog.png" alt="line-chart" class="w-5 h-5 shrink-0">
+        <span class="md:hidden lg:block">Progress</span>
+      </a>
+
+      <a href="/studentbookmarks.html" class="flex items-center gap-3 px-3 lg:px-4 py-3 rounded-lg text-sm font-medium">
+        <img src="./Images/book.png" alt="Bookmarks-logo" class="w-5 h-5 shrink-0">
+        <span class="md:hidden lg:block">Bookmarks</span>
+      </a>
+
+      <a href="/studentsettings.html" class="flex items-center gap-3 px-3 lg:px-4 py-3 rounded-lg text-sm font-medium">
+        <img src="./Images/settings.png" alt="settings-logo" class="w-5 h-5 shrink-0">
+        <span class="md:hidden lg:block">Settings</span>
+      </a>
+
+    </nav>
+
+
+    <div class="mt-auto mb-auto pb-3">
+      <div class="hidden w-8 h-[3px] bg-yellow-400 mb-4 md:mx-auto lg:mx-0 md:block"></div>
+
+      <p class="text-xs leading-5 font-semibold hidden lg:block">
+        Small steps<br>
+        today, big results<br>
+        tomorrow.
+      </p>
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+  <main class="flex-1 min-w-0 bg-white">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b border-[#D8E0DE] px-4 sm:px-6 lg:px-8 py-4">
+
+      <div class="flex items-center justify-between gap-4">
+
+        <!-- MENU -->
+        <button id="menuBtn" type="button" class="lg:hidden w-10 h-10 border border-[#D8E0DE] rounded-lg flex items-center justify-center relative">
+          <ion-icon name="menu-outline" class="w-5 h-5 absolute"></ion-icon>
+        </button>
+
+
+        <!-- SEARCH -->
+        <div class="hidden sm:flex flex-1 max-w-[500px] h-11 border border-[#D8E0DE] rounded-xl items-center px-4 gap-3">
+
+          <ion-icon name="search-outline" class="w-5 h-5"></ion-icon>
+
+          <input type="text" placeholder="Search topics, questions, or anything..." class="flex-1 min-w-0 outline-none bg-transparent text-sm placeholder:text-[#78909C] placeholder:font-bold">
+
+        </div>
+
+
+        <!-- PROFILE -->
+        <div class="flex items-center gap-3 sm:gap-4">
+
+          <button type="button" class="relative">
+            <ion-icon name="notifications-outline" class="w-6 h-6"></ion-icon>
+            <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white hidden"></span>
+          </button>
+
+
+          <div id="profile-initials" class="w-10 h-10 rounded-full bg-[#003028] text-white flex items-center justify-center text-sm font-bold">
+            ST
+          </div>
+
+
+          <div class="hidden sm:block leading-tight">
+
+            <p id="profile-name" class="text-sm font-bold">
+              Student
+            </p>
+
+            <p id="profile-role" class="text-[11px] text-[#78909C]">
+              Student
+            </p>
+
+          </div>
+
+          <ion-icon name="chevron-down-outline" class="hidden md:block w-4 h-4 text-[#78909C]"></ion-icon>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOBILE SEARCH -->
+      <div class="sm:hidden mt-4 h-11 border border-[#D8E0DE] rounded-xl flex items-center px-4 gap-3">
+
+        <ion-icon name="search-outline" class="w-4 h-4"></ion-icon>
+
+        <input type="text" placeholder="Search topics or questions..." class="flex-1 min-w-0 outline-none text-sm placeholder:text-[#78909C] placeholder:font-bold">
+
+      </div>
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <div class="p-4 sm:p-6 lg:p-8">
+
+      <div class="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_330px] gap-6">
+
+        <!-- LEFT -->
+        <div class="space-y-6">
+
+
+          <!-- WELCOME -->
+          <section class="relative bg-[#003028] rounded-2xl overflow-hidden p-5 sm:p-7 lg:p-8 text-white">
+
+            <div class="absolute right-0 top-0 w-[60%] h-full opacity-30 bg-gradient-to-l from-[#00C896] via-[#085848] to-transparent"></div>
+
+            <div class="absolute -right-16 -top-20 w-64 h-64 border-[35px] border-[#00C896]/10 rounded-full"></div>
+
+
+            <div class="relative z-10">
+
+              <h1 class="text-xl sm:text-2xl lg:text-[26px] font-bold">
+                Good Morning,
+                <span id="welcome-name">Student</span>
+              </h1>
+
+              <p class="mt-2 text-xs sm:text-sm text-white/75 leading-6 max-w-[420px]">
+                Keep going! You're doing great. Let's help you get closer to your goal.
+              </p>
+
+              <p class="mt-5 text-[11px] text-white/60">
+                Subjects:
+                <span id="selected-subjects">No subjects selected</span>
+              </p>
+
+              <p id="dashboard-date" class="mt-8 sm:mt-10 text-[10px] sm:text-[11px] text-white/65">
+                —
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- STATS -->
+          <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <!-- STREAK -->
+            <div class="bg-[#085848] text-white rounded-2xl p-5 sm:p-6 flex flex-col justify-center items-center">
+
+              <div class="flex items-center gap-3">
+                <img src="./Images/noto_fire.png" alt="fire-image">
+
+                <h2 id="study-streak" class="text-xl sm:text-2xl font-bold">
+                  0 Days
+                </h2>
+              </div>
+
+              <p id="best-streak" class="mt-4 text-xs text-white/65 font-bold">
+                Best: 0 days
+              </p>
+
+              <p class="text-base mt-2 text-white/50 font-semibold">
+                Study streak
+              </p>
+
+              <p class="mt-4 text-xs text-white/65 font-bold">
+                Vs. last 30 days
+              </p>
+
+            </div>
+
+
+            <!-- QUESTIONS -->
+            <div class="bg-white border border-[#D8E0DE] rounded-2xl p-5 sm:p-6 min-h-[160px] shadow-[0_3px_12px_rgba(0,48,40,0.05)]">
+
+              <div>
+                <img src="./Images/240.png" alt="note" class="w-10 h-10 mb-4">
+              </div>
+
+              <p id="questions-attempted" class="text-2xl font-bold">
+                0
+              </p>
+
+              <p class="text-xs text-[#78909C]">
+                Questions attempted
+              </p>
+
+              <p id="overall-progress" class="mt-4 text-xs text-green-500 font-semibold">
+                0% overall progress
+              </p>
+
+              <p class="mt-1 text-[10px] text-[#78909C]">
+                Your current progress
+              </p>
+
+            </div>
+
+
+            <!-- SESSIONS -->
+            <div class="bg-white border border-[#D8E0DE] rounded-2xl p-5 sm:p-6 min-h-[160px] shadow-[0_3px_12px_rgba(0,48,40,0.05)] sm:col-span-2 lg:col-span-1">
+
+              <div>
+                <img src="./Images/18.png" alt="todo-list" class="w-10 h-10 mb-4">
+              </div>
+
+              <p id="practice-sessions" class="text-2xl font-bold">
+                0
+              </p>
+
+              <p class="text-xs text-[#78909C]">
+                Practice Sessions
+              </p>
+
+              <p class="mt-4 text-xs text-green-500 font-semibold">
+                0%
+              </p>
+
+              <p class="mt-1 text-[10px] text-[#78909C]">
+                vs. Last 7 days
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <!-- CONTINUE PRACTICING -->
+          <section>
+
+            <h2 class="text-lg sm:text-xl font-bold text-[#085848]">
+              Continue Practicing
+            </h2>
+
+            <p class="mt-1 mb-4 text-xs sm:text-sm text-[#78909C] font-bold">
+              Pick up where you left off or start a new practice session
+            </p>
+
+
+            <div class="bg-white border border-[#D8E0DE] rounded-2xl shadow-[0_3px_12px_rgba(0,48,40,0.05)] p-4 sm:p-5 lg:px-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+
+              <div class="flex items-center gap-4">
+
+                <div>
+                  <img src="./Images/Math.png" alt="subject">
+                </div>
+
+
+                <div>
+
+                  <p id="current-subject-topic" class="text-sm font-semibold">
+                    No practice started yet
+                  </p>
+
+                  <div class="flex justify-center items-center mt-1 text-[10px] sm:text-[11px] text-[#78909C] gap-1">
+
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <p id="current-practice-meta">
+                      0 questions · Practice mode
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <a href="/studentpractice.html" id="current-practice-button" class="w-full sm:w-auto bg-[#085848] text-white text-sm font-semibold rounded-lg px-7 py-3 flex items-center justify-center gap-3">
+
+                Start Practice
+
+                <span>&#8594;</span>
+
+              </a>
+
+            </div>
+
+          </section>
+
+
+          <!-- RECENT ACTIVITY -->
+          <section class="bg-white border border-[#D8E0DE] rounded-2xl overflow-hidden shadow-[0_3px_12px_rgba(0,48,40,0.05)]">
+
+            <div class="p-5 sm:px-6 flex items-start justify-between">
+
+              <div>
+
+                <h2 class="text-lg sm:text-xl font-bold text-[#085848]">
+                  Recent Activity
+                </h2>
+
+                <p class="mt-1 text-xs text-[#78909C] font-bold">
+                  Your latest practice sessions
+                </p>
+
+              </div>
+
+              <button class="text-xs font-semibold whitespace-nowrap text-[#003028]">
+                View all &#8594;
+              </button>
+
+            </div>
+
+
+            <div class="overflow-x-auto">
+
+              <table class="w-full min-w-[620px] text-left">
+
+                <thead>
+
+                  <tr class="border-b border-[#D8E0DE] text-[11px] text-[#78909C]">
+
+                    <th class="px-6 py-4 font-bold">
+                      Subject
+                    </th>
+
+                    <th class="px-5 py-4 font-bold">
+                      Questions
+                    </th>
+
+                    <th class="px-5 py-4 font-bold">
+                      Score
+                    </th>
+
+                    <th class="px-6 py-4 font-bold">
+                      Date
+                    </th>
+
+                  </tr>
+
+                </thead>
+
+
+                <tbody id="recent-attempts-body" class="text-xs">
+
+                  <tr>
+
+                    <td colspan="4" class="px-6 py-8 text-center text-sm text-[#78909C] font-medium">
+                      No practice attempts yet.
+                    </td>
+
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!-- RIGHT -->
+        <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-6 items-start">
+
+          <!-- WEAK TOPICS -->
+          <section class="bg-white border border-[#D8E0DE] rounded-2xl p-5 sm:p-6 shadow-[0_3px_12px_rgba(0,48,40,0.05)]">
+
+            <h2 class="text-lg font-bold">
+              Your weak topics
+            </h2>
+
+            <p class="mt-1 text-xs text-[#78909C] leading-5 font-bold">
+              Focus on these areas to improve your performance.
+            </p>
+
+
+            <div id="weak-topics-list" class="mt-6 space-y-6">
+
+              <div class="border border-[#D8E0DE] rounded-xl p-5 text-center">
+
+                <p class="text-sm font-bold text-[#085848]">
+                  No weak topics yet
+                </p>
+
+                <p class="mt-2 text-[11px] text-[#78909C] leading-5">
+                  Complete some practice questions and your weak topics will appear here.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- PHONE IMAGE -->
+          <section>
+
+            <div>
+              <img src="./Images/Phone.png" alt="">
+            </div>
+
+          </section>
+
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+
+<script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

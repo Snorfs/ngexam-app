@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ExamPrep NG - Choose Your Role</title>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="/login.js" defer></script>
+</head>
+
+<body class="bg-[#F8F8F8] font-['Inter'] text-[#003028]">
+
+  <main class="min-h-screen w-full px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-10 max-w-[1240px] mx-auto">
+
+    <!-- LOGO + HEADING -->
+    <div class="ml-5 lg:ml-0">
+
+      <div class="flex items-center gap-2 mb-4">
+        <img src="/Images/logo2.png" alt="ExamPrep NG logo">
+        <p class="text-[24px] sm:text-[25px] font-extrabold text-[#085848]">ExamPrep NG</p>
+      </div>
+
+      <div>
+        <h1 class="text-[32px] sm:text-[38px] lg:text-[40px] leading-10 font-bold text-[#085848]">
+          Welcome to
+          <span class="block text-[#319F43]">ExamPrep NG</span>
+        </h1>
+
+        <p class="mt-5 max-w-[360px] text-[24px] sm:text-[16px] text-[#78909c]">
+          Let’s get you set up. First, tell us who you are.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- MAIN SECTION -->
+    <div class="mt-10 lg:mt-16 grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(380px,1.1fr)] gap-12 lg:gap-16 items-center">
+
+
+      <!-- ROLE CARDS -->
+      <section class="-mt-6">
+
+        <div class="space-y-5">
+
+
+          <!-- TEACHER -->
+          <a href="/teacherlogin.html"
+            class="role-card group block w-full p-4 sm:p-5 border border-[#D9D9D9] rounded-xl bg-[#FFFFFF] transition-all duration-200 hover:border-[#085848] hover:shadow-lg hover:-translate-y-1"
+            data-role="teacher">
+
+            <div class="flex items-center gap-5">
+
+              <img src="/Images/teacher.png" alt="Teacher" class="w-10 shrink-0">
+
+              <div class="flex-1 min-w-0">
+
+                <h2 class="text-[20px] sm:text-[16px] font-bold text-[#085848]">
+                  I’m a Teacher
+                </h2>
+
+                <p class="mt-2 max-w-[250px] text-[16px] sm:text-[14px] leading-5 text-[#085848]">
+                  Create and manage your classes, set assessments, track student progress and get performance insights.
+                </p>
+
+              </div>
+
+              <ion-icon
+                name="arrow-forward-outline"
+                class="text-white bg-[#085848] rounded-full w-6 h-6 p-2 shrink-0 transition-all duration-200 group-hover:bg-[#003028] group-hover:translate-x-1">
+              </ion-icon>
+
+            </div>
+
+          </a>
+
+
+          <!-- STUDENT -->
+          <a href="/studentlogin.html"
+            class="role-card group block w-full p-5 sm:p-6 border border-[#D9D9D9] rounded-xl bg-[#FFFFFF] transition-all duration-200 hover:border-[#085848] hover:shadow-lg hover:-translate-y-1"
+            data-role="student">
+
+            <div class="flex items-center gap-5">
+
+              <img src="/Images/student.png" alt="Student" class="w-10 shrink-0">
+
+              <div class="flex-1 min-w-0">
+
+                <h2 class="text-[20px] sm:text-[16px] font-bold text-[#085848]">
+                  I’m a Student
+                </h2>
+
+                <p class="mt-2 max-w-[250px] text-[16px] sm:text-[14px] leading-5 text-[#085848]">
+                  Practice questions, track your progress, improve your scores and reach your goals.
+                </p>
+
+              </div>
+
+              <ion-icon
+                name="arrow-forward-outline"
+                class="text-white bg-[#085848] rounded-full w-6 h-6 p-2 shrink-0 transition-all duration-200 group-hover:bg-[#003028] group-hover:translate-x-1">
+              </ion-icon>
+
+            </div>
+
+          </a>
+
+
+          <!-- ADMINISTRATOR -->
+          <a href="/adminlogin.html"
+            class="role-card group block w-full p-4 sm:p-5 border border-[#D9D9D9] rounded-xl bg-[#FFFFFF] transition-all duration-200 hover:border-[#085848] hover:shadow-lg hover:-translate-y-1"
+            data-role="administrator">
+
+            <div class="flex items-center gap-5">
+
+              <img src="/Images/Admin.png" alt="Administrator" class="w-10 shrink-0">
+
+              <div class="flex-1 min-w-0">
+
+                <h2 class="text-[20px] sm:text-[16px] font-bold text-[#085848]">
+                  I’m an Administrator
+                </h2>
+
+                <p class="mt-2 max-w-[250px] text-[16px] sm:text-[14px] leading-5 text-[#085848]">
+                  Manage users, content, systems settings, and school profiles. Access full system controls.
+                </p>
+
+              </div>
+
+              <ion-icon
+                name="arrow-forward-outline"
+                class="text-white bg-[#085848] rounded-full w-6 h-6 p-2 shrink-0 transition-all duration-200 group-hover:bg-[#003028] group-hover:translate-x-1">
+              </ion-icon>
+
+            </div>
+
+          </a>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- ILLUSTRATION -->
+      <section class="flex justify-left items-center lg:justify-end order-first lg:order-none">
+
+        <img
+          src="/Images/Teacher-bro 1.png"
+          alt="Education"
+          class="w-full max-w-[480px] object-contain -mt-6"
+        >
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- ION ICONS -->
+  <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
